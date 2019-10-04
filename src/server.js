@@ -1,0 +1,21 @@
+//req.query.idade
+    //->http://localhost:3333/users?idade=24
+//req.params.id
+    //'/users/:id'
+    //->'/users/1'
+//req.body
+const express = require ('express')
+const routes = require('./routes')
+const mongoose = require('mongoose')
+
+const app = express()
+
+mongoose.connect('mongodb+srv://OiMeuChapa:Testeteste@cluster0-f5gl2.mongodb.net/dbApSemana09?retryWrites=true&w=majority',{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+})
+
+
+app.use(express.json())
+app.use(routes)
+app.listen(3333)
